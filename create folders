@@ -1,0 +1,31 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+
+void main() {
+   //project path
+  final projectPath = "${Directory.current.path}/lib";
+
+  //folder creation
+  final directories = [
+    '$projectPath/core/utils',
+    '$projectPath/core/errors',
+    '$projectPath/core/widgets',
+    '$projectPath/features/home/data/models',
+    '$projectPath/features/home/data/repos',
+    '$projectPath/features/home/presentation/manager',
+    '$projectPath/features/home/presentation/views',
+    
+  ];
+
+  for (var dir in directories) {
+    final directory = Directory(dir);
+    if (!directory.existsSync()) {
+      directory.createSync(recursive: true);
+      print('Created: $dir ✓');
+    } else {
+      print('Directory already exists: $dir ');
+    }
+  }
+  print('creating files Successfully ✓');
+}
